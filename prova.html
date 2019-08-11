@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title>Prove varie</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+		<script src="lib/three.js"></script>
+		<script src="lib/GLTFLoader.js"></script>
+		
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			var geometry = new THREE.BoxGeometry( 0.1, 0.1, 0.1 );
+			var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+			var cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+			
+			//////////////////////////////////////////////
+			
+			// instantiate a loader
+			
+			const color = 0xFFFFFF;
+			const intensity = 1;
+			const light = new THREE.DirectionalLight(color, intensity);
+			light.position.set(0, 10, 0);
+			light.target.position.set(-5, 0, 0);
+			scene.add(light);
+			scene.add(light.target);
+			
+			/*
+			const objLoader = new THREE.OBJLoader2();
+			//objLoader.load('https://threejsfundamentals.org/threejs/resources/models/windmill/windmill.obj', (event) => {
+			objLoader.load('https://valentinainterdonato.github.io/models/arm.obj', (event) => {
+				const root = event.detail.loaderRootNode;
+				scene.add(root);
+			});
+			
+			
+			var loader = new THREE.OBJLoader(); 
+			var obj1, obj2, obj3;
+			loader.load('https://valentinainterdonato.github.io/models/arm.obj', function (objs){
+				obj1 = objs.getObjectByName('arm');
+				scene.add(obj1);
+				//console.log(obj1);
+				obj2 = objs.getObjectByName('elbow');
+				obj1.add(obj2);
+				//console.log(obj1);
+				obj3 = objs.getObjectByName('forearm');
+				obj2.add(obj3);
+				console.log(obj1);
+			});
+			*/
+			
+			var loader = new THREE.GLTFLoader().setPath( 'https://valentinainterdonato.github.io/models/' );
+			var obj1, obj2, obj3;
+			loader.load( 'arm_all_centered.gltf', function ( gltf ) {
+
+				//scene.add( gltf.scene );
+				console.log(gltf.scene);
+				obj1 = gltf.scene.getObjectByName('arm');
+				obj1.material = new THREE.MeshLambertMaterial( { color: 0xdddddd } );
+				//obj1.position.set(-1, -2, 0);
+				scene.add(obj1);
+				
+				
+				obj2 = gltf.scene.getObjectByName('elbow');
+				obj2.material = new THREE.MeshLambertMaterial( { color: 0x00dddd } );
+				obj2.position.set(0, -2, 0);
+				obj1.add(obj2);
+				
+				obj3 = gltf.scene.getObjectByName('forearm');
+				obj3.material = new THREE.MeshLambertMaterial( { color: 0xdd00dd } );
+				obj2.add(obj3);
+				console.log(obj1);
+
+			} );
+
+				//' http://127.0.0.1/E:/Università/A.A. 2018-2019/II Semestre/Interactive Graphics/Project/models/arm.obj'
+				
+			//////////////////////////////////////////////
+			
+			var animate = function () {
+				requestAnimationFrame( animate );
+				
+				//cube.position.x += 0.01;
+				//cube.rotation.x += 0.01;
+				//cube.rotation.z += 0.01;
+				obj1.rotation.z += 0.01;
+				obj2.rotation.z += 0.01;
+				
+				//obj_father.rotation.z += 0.01;
+				
+				renderer.render( scene, camera );
+			};
+
+			animate();
+		</script>
+	</body>
+</html>
