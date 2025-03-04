@@ -1,0 +1,187 @@
+{
+    "asset": {
+        "version": "2.0",
+        "generator": "Open Asset Import Library (assimp v5.2.cf7d3637)"
+    },
+    "extensionsUsed": [
+        "KHR_materials_volume",
+        "KHR_materials_ior",
+        "FB_ngon_encoding"
+    ],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 180672,
+            "type": "VEC3",
+            "max": [
+                81.59909057617188,
+                15.832178115844727,
+                81.57416534423828
+            ],
+            "min": [
+                -81.61621856689453,
+                10.714680671691895,
+                -81.55459594726563
+            ]
+        },
+        {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 180672,
+            "type": "VEC3",
+            "max": [
+                0.9877029061317444,
+                -0.0,
+                0.9876932501792908
+            ],
+            "min": [
+                -0.9876957535743713,
+                -0.9877125024795532,
+                -0.9876917600631714
+            ]
+        },
+        {
+            "bufferView": 2,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "count": 180672,
+            "type": "VEC2",
+            "max": [
+                0.98996502161026,
+                0.991087019443512
+            ],
+            "min": [
+                0.008383000269532204,
+                0.009921014308929444
+            ]
+        },
+        {
+            "bufferView": 3,
+            "byteOffset": 0,
+            "componentType": 5125,
+            "count": 180672,
+            "type": "SCALAR",
+            "max": [
+                180671
+            ],
+            "min": [
+                0
+            ]
+        }
+    ],
+    "buffers": [
+        {
+            "byteLength": 6504192,
+            "uri": "result.bin"
+        }
+    ],
+    "bufferViews": [
+        {
+            "buffer": 0,
+            "byteOffset": 0,
+            "byteLength": 2168064,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 2168064,
+            "byteLength": 2168064,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 4336128,
+            "byteLength": 1445376,
+            "target": 34962
+        },
+        {
+            "buffer": 0,
+            "byteOffset": 5781504,
+            "byteLength": 722688,
+            "target": 34963
+        }
+    ],
+    "materials": [
+        {
+            "name": "DefaultMaterial",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            },
+            "extensions": {
+                "KHR_materials_ior": {
+                    "ior": 1.0
+                }
+            }
+        },
+        {
+            "name": "lambert7SG",
+            "pbrMetallicRoughness": {
+                "baseColorFactor": [
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    0.6000000238418579,
+                    1.0
+                ],
+                "metallicFactor": 0.0
+            },
+            "extensions": {
+                "KHR_materials_ior": {
+                    "ior": 1.0
+                }
+            }
+        }
+    ],
+    "meshes": [
+        {
+            "name": "ceiling",
+            "primitives": [
+                {
+                    "extensions": {
+                        "FB_ngon_encoding": {}
+                    },
+                    "mode": 4,
+                    "material": 1,
+                    "indices": 3,
+                    "attributes": {
+                        "POSITION": 0,
+                        "NORMAL": 1,
+                        "TEXCOORD_0": 2
+                    }
+                }
+            ]
+        }
+    ],
+    "nodes": [
+        {
+            "name": "maze_ceiling.obj",
+            "children": [
+                1,
+                2
+            ]
+        },
+        {
+            "name": "default"
+        },
+        {
+            "name": "ceiling",
+            "mesh": 0
+        }
+    ],
+    "scenes": [
+        {
+            "nodes": [
+                0
+            ]
+        }
+    ],
+    "scene": 0
+}
